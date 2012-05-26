@@ -1,0 +1,28 @@
+{
+    "name": "buffered-response",
+    "version": "0.0.1",
+    "description": "Utility library for line-by-line reading from an HTTP response",
+    "main": "buffered-response",
+    "keywords": [
+        "javascript",
+        "http",
+        "utils"
+    ],
+    "author": {
+        "name": "Alex Kalderimis",
+        "email": "alex@intermine.org",
+        "twitter": "alexkalderimis"
+    },
+    "license": "LGPL",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/alexkalderimis/node-buffered-reader.git"
+    },
+    "engines": {
+        "node": ">= 0.4.0"
+    },
+    "directories": {
+        "examples": "examples",
+        "tests": "test"
+    }
+}
