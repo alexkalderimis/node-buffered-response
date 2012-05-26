@@ -1,6 +1,6 @@
 {
     "name": "buffered-response",
-    "version": "0.0.1",
+    "version": "0.0.1alpha-1",
     "description": "Utility library for line-by-line reading from an HTTP response",
     "main": "buffered-response",
     "keywords": [
@@ -22,7 +22,11 @@
         "node": ">= 0.4.0"
     },
     "directories": {
-        "examples": "examples",
-        "tests": "test"
+        "example": "examples",
+        "test": "test"
+    },
+    "bugs": {
+        "url" : "http://github.com/alexkalderimis/node-buffered-response/issues",
+        "email" : "alex@intermine.org"
     }
 }
