@@ -9,7 +9,7 @@ var opts = {
 };
 
 var req = http.request(opts, function(res) {
-    var br = new BufferedResponse(res, '\n', 'utf8');
+    var br = new BufferedResponse(res, 'utf8');
     br.each(function(line, idx) {
         console.log("ll. " + (idx + 1) + "|", line);
     });
