@@ -1,6 +1,7 @@
 var http = require('http');
-var BufferedResponse = require('./buffered-response').BufferedResponse;
+var BufferedResponse = require('../lib/buffered-response').BufferedResponse;
 
+// An example of an http resource that makes sense line by line.
 var opts = {
     host: 'www.flymine.org',
     method: 'GET',
@@ -8,17 +9,15 @@ var opts = {
 };
 
 var req = http.request(opts, function(res) {
-    var br = new BufferedResponse(res);
-    br.setEncoding('utf8');
-    var lineNo = 0;
-    br.on('line', function(line, last) {
-        console.log("LINE " + lineNo++ + " >>> ", line);
-        if (last) {
-            console.log("ALL DONE!!");
-        }
+    var br = new BufferedResponse(res, '\n', 'utf8');
+    br.each(function(line, idx) {
+        console.log("ll. " + (idx + 1) + "|", line);
     });
-    br.on('end', function() {
+    br.done(function() {
         console.log("GOODBYE!!");
+    });
+    br.error(function(e) {
+        console.log("ERROR: ", e);
     });
 });
 req.end();
