@@ -30,3 +30,8 @@ SYNOPSIS
     req.end();
 ```
 
+CHANGELOG
+=========
+
+0.0.1 Intial version
+0.0.2 (Thu Nov  8 16:43:50 GMT 2012): Moved from jquery-deferred to underscore-deferred.
