@@ -1,6 +1,6 @@
 {
     "name": "buffered-response",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "Utility library for line-by-line reading from any readable text stream",
     "main": "lib/buffered-response",
     "keywords": [
