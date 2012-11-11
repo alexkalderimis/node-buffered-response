@@ -91,4 +91,29 @@ exports.WordByWord = function(beforeExit, assert) {
     });
 };
 
+exports.IgnoresNullCallbacks = function(beforeExit, assert) {
+    var n = 0;
+    // Tests use of regexps matching multiple characters.
+    new BufferedReader(new RandomReader(path), null, /\s/)
+            //.each(function(word, idx) {console.log("WORD " + idx + "| " + word)})
+            .filter(function(word)         {return !word.match(/spam/)})
+            .map() // Should have no effect
+            .fold([0, 0], function(a, b)   {return [a[0] + b.length, a[1] + 1];})
+            .then(function(stats) {
+                n++; 
+                assert.equal(
+                    (stats[0] / stats[1]), 
+                    (68 / 13),
+                    "Complex pipeline: got: " 
+                        + (stats[0]/stats[1]) 
+                        + ", expected 68/13"
+                )
+             });
+
+    beforeExit(function() {
+        assert.equal(1, n, "All tests ran");
+    });
+};
+
+
 
