@@ -37,3 +37,4 @@ CHANGELOG
 0.0.2 (Thu Nov  8 16:43:50 GMT 2012): Moved from jquery-deferred to underscore-deferred.
 0.0.3 (Sun Nov 11 16:33:20 GMT 2012): Allow null values to be passed in as callbacks (they are ignored).
 0.0.4 ..: Also ignore null filters
+0.0.5 (Sun Nov 11 23:10:35 GMT 2012): Wrap all callbacks in try-catch.

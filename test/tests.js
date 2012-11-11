@@ -91,13 +91,29 @@ exports.WordByWord = function(beforeExit, assert) {
     });
 };
 
+exports.CatchesErrors = function(beforeExit, assert) {
+    var n = 0;
+    var rows = 0;
+    var die = function () { throw new Error("Boom!"); };
+    new BufferedReader(new RandomReader(path), null, /\s/)
+            .each(function () {rows++})
+            .each(die)
+            .map(die)
+            .error(function(e) {n++; assert.equal(e.message, "Boom!")});
+
+    beforeExit(function() {
+        assert.equal(rows * 2, n, "All tests ran: expected 2 tests per row, ran "
+            + n + " for " + rows + " rows");
+    });
+};
+
 exports.IgnoresNullCallbacks = function(beforeExit, assert) {
     var n = 0;
     // Tests use of regexps matching multiple characters.
     new BufferedReader(new RandomReader(path), null, /\s/)
             //.each(function(word, idx) {console.log("WORD " + idx + "| " + word)})
             .filter(function(word)         {return !word.match(/spam/)})
-            .map() // Should have no effect
+            .map(null)
             .fold([0, 0], function(a, b)   {return [a[0] + b.length, a[1] + 1];})
             .then(function(stats) {
                 n++; 
