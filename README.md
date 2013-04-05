@@ -1,6 +1,8 @@
 Buffered Response Reader for Node.js
 ====================================
 
+[ ![Codeship Status for alexkalderimis/raven-auth](https://www.codeship.io/projects/137f0580-800b-0130-06f3-22000a1c844f/status?branch=master)](https://www.codeship.io/projects/2377)
+
 A small utility class to wrap response objects
 from the http module, and provide line-by-line
 iteration.
