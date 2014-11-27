@@ -1,7 +1,7 @@
 Buffered Response Reader for Node.js
 ====================================
 
-[ ![Codeship Status for alexkalderimis/raven-auth](https://www.codeship.io/projects/137f0580-800b-0130-06f3-22000a1c844f/status?branch=master)](https://www.codeship.io/projects/2377)
+[![Build Status][status]][ci]
 
 A small utility class to wrap response objects
 from the http module, and provide line-by-line
@@ -40,3 +40,6 @@ CHANGELOG
 0.0.3 (Sun Nov 11 16:33:20 GMT 2012): Allow null values to be passed in as callbacks (they are ignored).
 0.0.4 ..: Also ignore null filters
 0.0.5 (Sun Nov 11 23:10:35 GMT 2012): Wrap all callbacks in try-catch.
+
+[status]: https://travis-ci.org/alexkalderimis/node-buffered-response.svg?branch=master
+[ci]: https://travis-ci.org/alexkalderimis/node-buffered-response
